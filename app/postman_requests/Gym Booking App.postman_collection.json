@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "7822bf3d-a740-4fa1-abc2-de92073e867e",
+		"name": "Gym Booking App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18164599"
+	},
+	"item": [
+		{
+			"name": "Create Booking",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"student_name\": \"John Doe\",\n  \"email\": \"johndoe@example.com\",\n  \"contact_number\": \"1234567890\",\n  \"date\": \"2023-06-18\",\n  \"start_time\": \"09:00:00\",\n  \"end_time\": \"10:00:00\",\n  \"status\": \"confirmed\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/booking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Bookings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/bookings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"bookings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Booking By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/booking/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"booking",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Booking",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"student_name\": \"John Doe Test\",\n  \"email\": \"johndoe@example.com\",\n  \"contact_number\": \"1234567890\",\n  \"date\": \"2023-06-18\",\n  \"start_time\": \"09:00:00\",\n  \"end_time\": \"10:00:00\",\n  \"status\": \"Cancelled\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/booking/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"booking",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Booking",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/booking/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"booking",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
