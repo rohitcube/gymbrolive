@@ -8,6 +8,8 @@ function Login() {
   const [isLogin, setIsLogin] = useState(true); // Toggle between login and another route
   const [additionalText, setAdditionalText] = useState("");
   const navigate = useNavigate();
+  sessionStorage.setItem('studentNo', studentNo);
+  sessionStorage.setItem('password', password);
 
   function submitForm(e) {
     e.preventDefault();
@@ -17,8 +19,8 @@ function Login() {
       password: password
     };
     const route1 = isLogin
-      ? "http://localhost:4000/api/login/"
-      : "http://localhost:4000/api/records/";
+      ? "https://gymbro-mysql-6b313f0f66bb.herokuapp.com/api/login/"
+      : "https://gymbro-mysql-6b313f0f66bb.herokuapp.com/api/records/";
 
     console.log(route1);
     fetch(route1, {
@@ -45,11 +47,9 @@ function Login() {
           // Handle response for the other route
           // Assuming the response contains the necessary data for success
           if (data) {
-            navigate("/accountmade", {
-              stu_num: studentNo,
-              password: password
-            }); // Redirect to the "Other" page
-            
+            navigate("/accountmade"); // Redirect to the "Other" page
+            sessionStorage.setItem('username', studentNo);
+            sessionStorage.setItem('password', password);
           } else {
             console.log("Request failed");
           }
@@ -101,7 +101,7 @@ function Login() {
           )}
         </form>
         <button onClick={toggleSwitch}>
-          {isLogin ? "Switch to Another Route" : "Switch to Login"}
+          {isLogin ? "Switch to Another Make Account" : "Switch to Login"}
         </button>
         <br />
         <button onClick={handleGoToSignUp}>Sign Up</button>

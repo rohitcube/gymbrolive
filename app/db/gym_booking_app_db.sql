@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.32, for Linux (x86_64)
 --
--- Host: localhost    Database: gym_booking_app
+-- Host: us-cdbr-east-06.cleardb.net    Database: heroku_2cd5405f4dcc3cc
 -- ------------------------------------------------------
 -- Server version	8.0.32-0ubuntu0.20.04.2
 
@@ -46,7 +46,7 @@ INSERT INTO `bookings` VALUES (1,'John Doe','johndoe@example.com','1234567890','
 UNLOCK TABLES;
 
 --
--- Dumping routines for database 'gym_booking_app'
+-- Dumping routines for database 'heroku_2cd5405f4dcc3cc'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

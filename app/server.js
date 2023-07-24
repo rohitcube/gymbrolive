@@ -8,7 +8,7 @@ const startServer = async () => {
     await sequelize.sync();
 
     // Start the server
-    app.listen(port, () => {
+    app.listen(process.env.PORT || port, () => {
       console.log(`App listening on port ${port}!`);
     });
   } catch (error) {

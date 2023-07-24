@@ -4,7 +4,7 @@
     // Perform login logic here
     const loginData = { stu_num: studentNo, password: password };
     console.log(loginData);
-    fetch("http://localhost:3031/api/records/login", {
+    fetch("https://gymbro-mysql-6b313f0f66bb.herokuapp.com/api/records/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

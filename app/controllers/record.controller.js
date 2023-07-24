@@ -44,9 +44,9 @@ const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.stu_num || !req.body.password) {
+  if (!req.body.stu_num || !req.body.password || !req.body.tele_id)  {
     res.status(400).send({
-      message: "Student number and password are required."
+      message: "Student number, password and Telegram ID are required."
     });
     return;
   }
@@ -209,7 +209,7 @@ exports.deleterecord = (req, res) => {
       });
   };
 
-  /*
+
 // Delete all records from the database.
 exports.deleteAll = (req, res) => {
     Record.destroy({
@@ -226,7 +226,7 @@ exports.deleteAll = (req, res) => {
         });
       });
   };
-
+/*
 // Find all published records
 exports.findAllPublished = (req, res) => {
     Record.findAll({ where: { published: true } })
@@ -249,6 +249,7 @@ exports.login = async (req, res) => {
   const password = req.body.password;
   console.log("currNum:", currNum);
   console.log("password:", password);
+  
   try {
     const currrecord = await Record.findOne({ where: { stu_num: currNum } });
 

@@ -1,19 +1,25 @@
 const { DataTypes, Model } = require('sequelize');
 const { sequelize } = require('../config/connection');
 
-const Booking = sequelize.define('Booking', {
-    booking_id: {
+const Feedback = sequelize.define('Feedback', {
+    feedback_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true,
-        field: 'booking_id'
+        field: 'feedback_id'
     },
-    student_name: {
+    student_number: {
+        type: DataTypes.STRING(100),
+        allowNull: false,
+        defaultValue: null,
+        field: 'student_number'
+    },
+    tele_id: {
         type: DataTypes.STRING(100),
         allowNull: true,
         defaultValue: null,
-        field: 'student_name'
+        field: 'tele_id'
     },
     email: {
         type: DataTypes.STRING(100),
@@ -21,11 +27,11 @@ const Booking = sequelize.define('Booking', {
         defaultValue: null,
         field: 'email'
     },
-    contact_number: {
-        type: DataTypes.STRING(100),
+    paragraph: {
+        type: DataTypes.STRING(1250),
         defaultValue: null,
         allowNull: true,
-        field: 'contact_number'
+        field: 'paragraph'
     },
     date: {
         type: DataTypes.DATEONLY,
@@ -33,34 +39,16 @@ const Booking = sequelize.define('Booking', {
         allowNull: false,
         field: 'date'
     },
-    start_time: {
-        type: DataTypes.TIME,
-        defaultValue: null,
-        allowNull: false,
-        field: 'start_time'
-    },
-    end_time: {
-        type: DataTypes.TIME,
-        defaultValue: null,
-        allowNull: false,
-        field: 'end_time'
-    },
     status: {
         type: DataTypes.STRING(20),
         defaultValue: null,
         field: 'status'
-    },
-    tele_id: {
-        type: DataTypes.STRING(100),
-        defaultValue: null,
-        allowNull: false,
-        field: 'tele_id'
-    },
+    }
 }, {
     sequelize,
-    modelName: 'Booking',
-    tableName: 'bookings',
+    modelName: 'Feedback',
+    tableName: 'feedback',
     timestamps: false
 });
 
-module.exports = Booking;
+module.exports = Feedback;

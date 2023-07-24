@@ -7,7 +7,9 @@ import { useNavigate } from "react-router-dom";
   const [tele_id, setTele_id] = useState("");
   const [additionalText, setAdditionalText] = useState("");
   const navigate = useNavigate();
-
+  sessionStorage.setItem('studentNo', studentNo);
+  sessionStorage.setItem('password', password);
+  sessionStorage.setItem('tele_id', tele_id);
   function submitForm(e) {
     e.preventDefault();
     // Perform login logic here
@@ -16,7 +18,7 @@ import { useNavigate } from "react-router-dom";
         password: password,
         tele_id: tele_id
     };
-    const route1 = "http://localhost:4000/api/records/"; //create 
+    const route1 = "https://gymbro-mysql-6b313f0f66bb.herokuapp.com/api/records/"; //create 
     console.log(route1);
     fetch(route1, {
       method: "POST",
@@ -57,7 +59,7 @@ import { useNavigate } from "react-router-dom";
       </header>
       <main>
         <div>
-          <h3>Please enter your student number, password, email and telegram ID to sign up</h3>
+          <h3>Please enter your student number, password and telegram ID to sign up</h3>
         </div>
         <form onSubmit={submitForm}>
           <input
@@ -67,6 +69,8 @@ import { useNavigate } from "react-router-dom";
             value={studentNo}
             onChange={(e) => setStudentNo(e.target.value)}
           />
+          <br>
+          </br>
           <input
             type="password"
             name="password"
@@ -74,6 +78,8 @@ import { useNavigate } from "react-router-dom";
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+           <br>
+          </br>
           <input
             type="tele_id"
             name="tele_id"
@@ -81,7 +87,7 @@ import { useNavigate } from "react-router-dom";
             value={tele_id}
             onChange={(e) => setTele_id(e.target.value)} 
           />
-          <button type="Submit">Login</button>
+          <button type="Submit">Sign Up</button>
         </form>
         {additionalText && <p>{additionalText}</p>}
       </main>

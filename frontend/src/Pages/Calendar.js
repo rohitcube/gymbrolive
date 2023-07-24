@@ -2,19 +2,24 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
+
+
+
 function Calendar() {
   const navigate = useNavigate();
   const [additionalText, setAdditionalText] = useState("");
+  const studentNo = sessionStorage.getItem('studentNo');
+  const password = sessionStorage.getItem('password');
  function sendBookingRequest(date, time1, time2) {
   const requestData = {
-    student_name: "bruh3",
-    email: "bro@jmail.com",
+    student_name: studentNo,
+    email: password,
     date: date,
     start_time: time1,
     end_time: time2
   };
   console.log(requestData);
-  const route = "http://localhost:4000/api/booking/"; // Replace with your actual API route
+  const route = "https://gymbro-mysql-6b313f0f66bb.herokuapp.com/api/booking/"; // Replace with your actual API route
 
   fetch(route, {
     method: "POST",
