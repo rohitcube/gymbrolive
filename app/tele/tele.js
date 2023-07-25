@@ -2,7 +2,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 
 // Replace 'YOUR_TELEGRAM_BOT_API_TOKEN' with your actual Telegram Bot API token
-const bot = new TelegramBot(secrets.bot_token_no, { polling: true });
+const bot = new TelegramBot(secrets.BOT_TOKEN_NO, { polling: true });
 
 console.log('file runs');
 
