@@ -2,46 +2,6 @@ const db = require("../models");
 const Record = db.records;
 const Op = db.Sequelize.Op;
 
-/*exports.create = (req, res) => {
-    // Validate request
-    if (!req.body.stu_num) {
-      res.status(400).send({
-        message: "Content can not be empty!"
-      });
-      return;
-    }
-    if (!req.body.password) {
-        res.status(400).send({
-          message: "Content can not be empty!"
-        });
-        return;
-      }
-    
-    // Create a Record
-    const record = {
-      stu_num: req.body.stu_num,
-      password: req.body.password,
-      tele_id: req.body.tele_id
-    };
-  
-    // Save Record in the database
-    Record.create(record)
-      .then(data => {
-        res.send({
-            message: "Account created successfully!",
-            data: data
-        });
-     //   res.send(data);
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the Record."
-        });
-      });
-  };
-*/
-
 exports.create = (req, res) => {
   // Validate request
   if (!req.body.stu_num || !req.body.password || !req.body.tele_id)  {
@@ -105,28 +65,6 @@ exports.findAll = (req, res) => {
         });
       });
   };
-
-  /*
-// Find a single Record with an id
-exports.findOne = (req, res) => {
-    const id = req.params.id;
-    Record.findByPk(id)
-      .then(data => {
-        if (data) {
-          res.send(data);
-        } else {
-          res.status(404).send({
-            message: `Cannot find Record with id=${id}.`
-          });
-        }
-      })
-      .catch(err => {
-        res.status(500).send({
-          message: "Error retrieving Record with id=" + id
-        });
-      });
-  };
-*/
 
 exports.findOne = (req, res) => {
   const currNum = req.body.stu_num;
