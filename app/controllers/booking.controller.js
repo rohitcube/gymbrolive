@@ -1,31 +1,9 @@
 const Booking = require('../models/booking.model');
 const { Op } = require('sequelize'); // Import the Op object from Sequelize
 
-/*exports.createBooking = async (req, res) => {
-  try {
-    const newBooking = await Booking.create(req.body);
-    res.status(201).json({ message: 'Booking created successfully', booking: newBooking });
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-};
-*/
 exports.createBooking = async (req, res) => {
   try {
     const { date, start_time } = req.body;
-
-    // Check if there is a pre-existing booking at the specified date and start time
- /*   const existingBooking = await Booking.findOne({
-      where: {
-        date: date,
-        start_time: start_time
-      }
-    });
-
-    if (existingBooking) {
-      return res.status(409).json({ message: 'Booking already exists at this time and date' });
-    }
-*/
     const newBooking = await Booking.create(req.body);
     res.status(201).json({ message: 'Booking created successfully', booking: newBooking });
   } catch (error) {
@@ -44,7 +22,6 @@ exports.getAllBookings = async (req, res) => {
 };
 
 exports.getAllBookingsForStudent = async (req, res) => {
-//  const { student_id } = req.body.student_name; // 
   try {
     const bookings = await Booking.findAll({ where: { student_name: req.params.student_name } });
     res.status(200).json(bookings);
